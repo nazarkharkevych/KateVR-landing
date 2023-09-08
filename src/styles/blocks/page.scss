@@ -1,0 +1,94 @@
+.page {
+  position: relative;
+
+  font-family: "Inter", sans-serif;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+
+    background: $c-background-gradient;
+
+    &--shadowed {
+      @include onTablet {
+        &:after {
+          height: auto;
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: rgba(0, 0, 0, 0.7);
+          z-index: 2;
+
+          @include onDesktop {
+            height: auto;
+          }
+        }
+      }
+    }
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__main {
+    flex-grow: 1;
+  }
+
+  &__faq,
+  &__help,
+  &__place-order {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__menu,
+  &__language,
+  &__faq,
+  &__help,
+  &__place-order {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    @extend %animation-appeared;
+
+    transform: translateX(100%);
+    transition: all $transition-time;
+
+    z-index: 3;
+
+    &:target {
+      transform: translateX(0);
+    }
+
+    @include onDesktop {
+      &:target {
+        display: block;
+      }
+
+      &:target:not(.page__place-order) {
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  &__faq:target,
+  &__help:target {
+    @include onDesktop {
+      position: absolute;
+      top: 134px;
+      left: 50%;
+      bottom: auto;
+    }
+  }
+}

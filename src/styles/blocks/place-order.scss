@@ -1,0 +1,260 @@
+.place-order {
+  height: 100vh;
+
+  background: $c-background-gradient;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  z-index: 3;
+
+  &__cross {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__title {
+    margin: 0 31px 16px;
+
+    @extend %h1;
+
+    font-size: 26px;
+    text-transform: uppercase;
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 20px;
+
+      font-size: 46px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 36px;
+    }
+
+    @include onLargeDesktop {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 40px;
+
+    line-height: 130%;
+    color: $c-white;
+    text-align: center;
+
+    @include onTablet {
+      font-size: 18px;
+      margin-bottom: 50px;
+    }
+
+    @include onLargeDesktop {
+      margin-bottom: 70px;
+    }
+  }
+
+  &__content {
+    @extend %block-content;
+
+    height: auto;
+    padding: 20px 0 38px;
+
+    @include onTablet {
+      padding: 30px 0 44px;
+    }
+
+    @include onDesktop {
+      position: relative;
+      padding: 64px 110px 0;
+
+      background: bottom 140px left url(../images/place-order-image.png) no-repeat;
+    }
+
+    @include onLargeDesktop {
+      padding-inline: 235px;
+      background: bottom 90px left url(../images/place-order-image-1920.png) no-repeat;
+    }
+
+    &--no-background {
+      background: none;
+    }
+  }
+
+  &__top {
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+      gap: 191px;
+      margin-bottom: 115px;
+    }
+
+    @include onLargeDesktop {
+      margin-bottom: 275px;
+      gap: 290px;
+    }
+  }
+
+  &__top-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 0 20px;
+
+    @include onTablet {
+      padding: 0 35px;
+    }
+
+    @include onDesktop {
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  &__logo {
+    @include onDesktop {
+      grid-column: 1 / 3;
+    }
+  }
+
+  &__steps {
+    display: flex;
+
+    @include onDesktop {
+      gap: 191px;
+    }
+
+    @include onLargeDesktop {
+      gap: 290px;
+    }
+  }
+
+  &__step {
+    position: relative;
+    width: 100%;
+    padding-bottom: 16px;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 130%;
+    color: $c-text-gray-dark;
+    text-align: center;
+
+    border-bottom: 1px solid $c-dark-gray;
+    transition: all $transition-time;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+
+    @include onDesktop {
+      width: auto;
+      border: 0;
+      padding: 0;
+      flex-shrink: 0;
+    }
+
+    &--active {
+      color: $c-contrast-blue;
+      border-color: $c-contrast-blue;
+
+      @include onDesktop {
+        &::after {
+          content: "";
+          display: inline-block;
+          position: absolute;
+          top: 100%;
+          margin-top: 7px;
+          left: 45%;
+          width: 4px;
+          height: 4px;
+
+          border-radius: 50%;
+          background-color: $c-contrast-blue;
+        }
+      }
+    }
+
+    &--completed {
+      color: $c-white;
+    }
+
+    &:last-child {
+      @include onDesktop {
+        margin-left: 55px;
+      }
+    }
+  }
+
+  &__form-container {
+    padding: 0 20px;
+
+    @include onTablet {
+      padding: 0 35px;
+    }
+
+    @include onDesktop {
+      padding: 0;
+    }
+  }
+
+  &__slide {
+    transition: all $transition-time;
+
+    &-form {
+      @include onTablet {
+        padding: 320px 0 0;
+
+        background: center 40px url(../images/place-order_tablet.png) no-repeat;
+      }
+
+      @include onDesktop {
+        background: none;
+        padding: 0;
+      }
+    }
+
+    &-final {
+      display: none;
+      padding-top: 60px;
+      flex-direction: column;
+
+      @include onTablet {
+        padding-top: 180px;
+      }
+
+      @include onDesktop {
+        padding-top: 36px;
+      }
+
+      @include onLargeDesktop {
+        padding-top: 0;
+        margin-top: -30px;
+      }
+    }
+
+    &--swiped {
+      @extend %animation-swiped;
+    }
+  }
+
+  &__form-quantity {
+    grid-column: 1 / 5;
+    grid-row: 1 / 3;
+    align-self: end;
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

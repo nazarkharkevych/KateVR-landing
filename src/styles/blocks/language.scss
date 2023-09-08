@@ -1,0 +1,40 @@
+.language {
+  height: 100vh;
+  bottom: auto;
+
+  background-color: $c-background-menu;
+  overflow-y: auto;
+
+  @include onTablet {
+    height: auto;
+
+    z-index: 3;
+  }
+
+  @include onDesktop {
+    &:target {
+      display: none;
+    }
+  }
+
+  &__content {
+    @extend %block-content;
+
+    height: auto;
+
+    @include onTablet {
+      padding: 34px 0 15px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    margin-bottom: 38px;
+    padding-left: 20px;
+
+    @include onTablet {
+      padding-left: 34px;
+      margin-bottom: 48px;
+    }
+  }
+}

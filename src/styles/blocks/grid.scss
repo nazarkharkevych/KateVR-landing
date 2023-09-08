@@ -1,0 +1,50 @@
+.grid {
+  &--footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &--place-form {
+    grid-column: 1 / -1;
+
+    &-tablet {
+      @include onTablet {
+        grid-column: 2 / -2;
+        justify-self: center;
+        min-width: 460px;
+      }
+    }
+
+    @include onDesktop {
+      grid-column: 7 / - 1;
+    }
+
+    @include onLargeDesktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+  }
+
+  @include onLargeDesktop {
+    grid-template-columns: repeat(16, 1fr);
+    gap: 20px;
+  }
+
+  &--inputs {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &--contact {
+    position: relative;
+  }
+}

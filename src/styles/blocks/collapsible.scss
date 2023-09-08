@@ -1,0 +1,56 @@
+.collapsible {
+  border: 1px solid $c-contrast-blue;
+  border-radius: 4px;
+
+  &__button {
+    width: 100%;
+    padding: 18px 12px;
+
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 150%;
+    color: $c-contrast-blue;
+    text-align: left;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    @include onTablet {
+      padding: 15px 30px;
+    }
+  }
+
+  &__content {
+    display: none;
+    padding: 0 12px;
+
+    @include onTablet {
+      padding: 0 30px;
+    }
+
+    &-text {
+      margin-bottom: 30px;
+    }
+
+    &-bottom-text {
+      margin-bottom: 12px;
+
+      font-size: 12px;
+      color: $c-text-gray-dark;
+
+      @include onTablet {
+        margin-bottom: 24px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 20px;
+      }
+
+      @include onLargeDesktop {
+        margin-bottom: 24px;
+      }
+    }
+  }
+}
