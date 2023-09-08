@@ -1,4 +1,4 @@
-# KateVr landing
+# KateVR landing
 This is a website for VR set product.
 
  ## About The Project
